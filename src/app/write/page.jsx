@@ -10,7 +10,6 @@ import ReactQuill from "react-quill";
 
 const WritePage = () => {
   const { status } = useSession();
-  // const status = "authenticated";
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
@@ -71,6 +70,7 @@ const WritePage = () => {
       } else {
         setResult(data.result);
         console.log(data.result);
+        alert("File Uploaded!");
       }
     } catch (error) {
       console.log("Something went wrong!!");
@@ -132,13 +132,22 @@ const WritePage = () => {
         </button>
 
         {open && (
-          <form onSubmit={handleUpload} encType="multipart/form-data">
+          <form
+            onSubmit={handleUpload}
+            encType="multipart/form-data"
+            className={styles.imageForm}
+          >
+            <label htmlFor="uploadInput" className={styles.uploadLabel}>
+              Choose Image
+            </label>
             <input
+              id="uploadInput"
               type="file"
               accept="image/*"
               onChange={handleFileChange}
-              className={styles.addButton}
+              className={styles.hiddenInput}
             />
+
             <button type="submit" disabled={uploading}>
               {uploading ? "Uploading..." : "Upload"}
             </button>

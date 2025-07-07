@@ -44,35 +44,17 @@ const SinglePage = async ({ params }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className={styles.mainImageContainer}>
         <div className={styles.imageContainer}>
-          <img
+          <Image
             src={data.img}
-            alt="Post Image"
-            width={500}
-            height={500}
-            style={{ objectFit: "cover" }}
+            fill
+            objectFit="contain"
+            className="asp"
+            alt="as"
           />
         </div>
-        {/* {data?.img && (
-          <div className={styles.imageContainer}>
-            <img
-              src={data.img}
-              alt="Post Image"
-              width={500}
-              height={500}
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        )} */}
-      </div>
-      <div>
-        <Image
-          src={data.img}
-          height={200}
-          width={200}
-          className="asp"
-          alt="as"
-        />
       </div>
       <div className={styles.content}>
         <div className={styles.post}>
@@ -84,7 +66,7 @@ const SinglePage = async ({ params }) => {
             <Comments postSlug={slug} />
           </div>
         </div>
-        <Menu />
+        {/* <Menu /> */}
       </div>
     </div>
   );

@@ -1,55 +1,58 @@
 .container {
+  min-height: calc(100vh - 300px); /* Leaves room for header if needed */
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-top: 60px;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: var(--bg); /* Inherits from global theme */
+  color: var(--textColor); /* Inherits from global theme */
 }
 
 .wrapper {
-  background-color: var(--softBg);
-  padding: 150px 200px;
+  background-color: var(--softBg); /* Theme-friendly container background */
+  padding: 40px 30px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  border-radius: 10px;
+  gap: 20px;
+  text-align: center;
 }
 
 .socialButton {
-  padding: 20px;
-  border-radius: 5px;
-  border: none;
-  color: white;
-  font-weight: bold;
+  background-color: var(--bg);
+  border: 1px solid var(--softTextColor);
+  color: var(--textColor);
+  padding: 15px 20px;
+  border-radius: 12px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-.socialButton:first-child {
-  background-color: #ff5555;
+.socialButton:hover {
+  background-color: var(--softBg);
+  transform: translateY(-2px);
 }
 
-.socialButton:nth-child(2) {
-  background-color: #111;
+.loading {
+  color: var(--textColor);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 100px;
 }
 
-.socialButton:nth-child(3) {
-  background-color: #087bea;
-}
-
-@media screen and (max-width: 768px) {
+@media (max-width: 480px) {
   .wrapper {
-    padding: 50px 100px;
-  }
-}
-@media screen and (max-width: 640px) {
-  .wrapper {
-    padding: 30px;
+    padding: 30px 20px;
   }
 
-  .socialButton{
-    font-weight: 400;
-    font-size: 14px;
+  .socialButton {
+    font-size: 0.95rem;
+    padding: 12px 16px;
   }
 }

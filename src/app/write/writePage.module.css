@@ -1,75 +1,172 @@
-.container{
+.container {
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: var(--bg);
+  color: var(--textColor);
+  min-height: 100vh;
 }
 
-.select{
-  margin-bottom: 50px;
-  padding: 10px 20px;
-  margin-left: 50px;
+.input {
+  padding: 30px 20px;
+  font-size: 48px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--textColor);
+  border-bottom: 2px solid var(--softBg);
+  margin-bottom: 20px;
+}
+
+.input::placeholder {
+  color: var(--softTextColor);
+}
+
+.select {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--softTextColor);
+  background-color: var(--softBg);
+  color: var(--textColor);
   width: max-content;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .editor {
   display: flex;
   gap: 20px;
-  height: 700px;
-  position: relative;
+  min-height: 500px;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 .button,
 .addButton {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: transparent;
   border: 1px solid var(--textColor);
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover,
+.addButton:hover {
+  background-color: var(--softBg);
 }
 
 .addButton {
   border-color: #1a8917;
 }
 
-.add {
+.imageForm {
   display: flex;
-  gap: 20px;
-  background-color: var(--bg);
-  position: absolute;
-  z-index: 999;
-  width: 100%;
-  left: 50px;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.input{
-  padding: 50px;
-  font-size: 64px;
-  border: none;
-  outline: none;
+.imageForm input[type="file"] {
   background-color: transparent;
   color: var(--textColor);
+  cursor: pointer;
 }
 
-.input::placeholder{
-  color: #b3b3b1;
+.imageForm button {
+  background-color: #1a8917;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .textArea {
   width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  line-height: 1.6;
+  border-left: 4px solid var(--softBg);
+  min-height: 300px;
+  color: var(--textColor);
 }
 
-.publish{
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  padding: 10px 20px;
+.previewImageWrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.previewImage {
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.publish {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
   border: none;
   background-color: #1a8917;
   color: white;
   cursor: pointer;
+  border-radius: 30px;
+  box-shadow: 0 4px 20px rgba(26, 137, 23, 0.3);
+  transition: background-color 0.2s ease;
+}
+
+.publish:hover {
+  background-color: #166c13;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 60px 0;
+  color: var(--textColor);
+}
+.hiddenInput {
+  display: none;
+}
+
+.uploadLabel {
+  padding: 10px 20px;
+  background-color: #1a8917;
+  color: white;
   border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  width: fit-content;
+  transition: background-color 0.2s ease;
+}
+
+.uploadLabel:hover {
+  background-color: #166d13;
+}
+.uploadForm button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #1a8917;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.uploadForm button[type="submit"]:hover {
+  background-color: #166d13;
 }

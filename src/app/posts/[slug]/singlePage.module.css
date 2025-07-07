@@ -48,6 +48,13 @@
   position: relative;
 }
 
+.mainImageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 25px 0;
+}
+
 .image {
   object-fit: cover;
 }
@@ -59,15 +66,17 @@
 
 .post {
   flex: 5;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .description p {
   font-size: 20px;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
-
+.comment {
+  padding: 10px 0px 5px 0px;
+}
 @media screen and (max-width: 1536px) {
   .title {
     font-size: 54px;
@@ -79,8 +88,8 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  .imageContainer {
-    display: none;
+  .mainImageContainer {
+    margin: 0;
   }
 }
 @media screen and (max-width: 640px) {
@@ -88,7 +97,7 @@
     font-size: 36px;
   }
 
-  .description p{
+  .description p {
     font-size: 18px;
   }
 }

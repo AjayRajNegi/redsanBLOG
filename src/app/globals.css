@@ -73,14 +73,14 @@ a {
 }
 @media screen and (max-width: 640px) {
   .wrapper {
-    max-width: 475px;
+    max-width: 100%;
   }
 }
 
-.ql-container{
+.ql-container {
   font-size: 28px !important;
 }
 
-.quill > .ql-container > .ql-editor.ql-blank::before{
+.quill > .ql-container > .ql-editor.ql-blank::before {
   color: #b3b3b1;
 }
