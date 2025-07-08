@@ -1,8 +1,8 @@
 "use client";
 export const dynamic = "force-dynamic";
 
-import dynamic from "next/dynamic";
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import loadDynamic from "next/dynamic";
+const ReactQuill = loadDynamic(() => import("react-quill"), { ssr: false });
 
 import Image from "next/image";
 import "react-quill/dist/quill.bubble.css";
