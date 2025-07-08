@@ -1,16 +1,15 @@
 "use client";
 export const dynamic = "force-dynamic";
-const ReactQuill = dynamic(() => import("react-quill"), {
-  ssr: false,
-});
+
+import dynamic from "next/dynamic";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 import Image from "next/image";
-import styles from "./writePage.module.css";
-import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import styles from "./writePage.module.css";
 import { useSession } from "next-auth/react";
-import ReactQuill from "react-quill";
 
 const WritePage = () => {
   const { status } = useSession();
