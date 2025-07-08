@@ -1,5 +1,8 @@
 "use client";
 export const dynamic = "force-dynamic";
+const ReactQuill = dynamic(() => import("react-quill"), {
+  ssr: false,
+});
 
 import Image from "next/image";
 import styles from "./writePage.module.css";
