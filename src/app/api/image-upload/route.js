@@ -29,6 +29,10 @@ export async function POST(req) {
     });
     return NextResponse.json({ result }, { status: 200 });
   } catch (error) {
-    return NextRequest.json({ error: "Upload image field." }, { status: 400 });
+    console.log(error);
+    return NextRequest.json(
+      { error: "Error while uploading image." },
+      { status: 400 }
+    );
   }
 }

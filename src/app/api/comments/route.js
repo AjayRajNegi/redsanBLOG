@@ -18,9 +18,12 @@ export const GET = async (req) => {
 
     return new NextResponse(JSON.stringify(comments, { status: 200 }));
   } catch (err) {
-    // console.log(err);
+    console.log(err);
     return new NextResponse(
-      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
+      JSON.stringify(
+        { message: "Error while fetching comments." },
+        { status: 500 }
+      )
     );
   }
 };
@@ -45,7 +48,10 @@ export const POST = async (req) => {
   } catch (err) {
     console.log(err);
     return new NextResponse(
-      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
+      JSON.stringify(
+        { message: "Error while creating comment." },
+        { status: 500 }
+      )
     );
   }
 };

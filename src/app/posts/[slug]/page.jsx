@@ -9,7 +9,7 @@ const getData = async (slug) => {
   });
 
   if (!res.ok) {
-    throw new Error("Failed");
+    throw new Error("Failed to fetch post.");
   }
 
   return res.json();

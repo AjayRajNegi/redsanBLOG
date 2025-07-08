@@ -1,8 +1,8 @@
 "use client";
 export const dynamic = "force-dynamic";
 
-import dynamic from "next/dynamic";
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import loadDynamic from "next/dynamic";
+const ReactQuill = loadDynamic(() => import("react-quill"), { ssr: false });
 
 import Image from "next/image";
 import "react-quill/dist/quill.bubble.css";
@@ -76,38 +76,48 @@ const WritePage = () => {
         alert("File Uploaded!");
       }
     } catch (error) {
-      console.log("Something went wrong!!");
+      console.log("Error while uploading image.");
     } finally {
       setUploading(false);
     }
   };
   const handleSubmit = async () => {
-    console.log("handleSubmit to submit data");
-    console.log(result.secure_url);
-    const res = await fetch("/api/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title,
-        desc: value,
-        img: result.secure_url,
-        slug: slugify(title),
-        catSlug: catSlug || "style",
-      }),
-    });
+    try {
+      console.log("handleSubmit to submit data");
+      console.log(result.secure_url);
 
-    const data = await res.json().catch(() => null);
-    console.log("Post response:", res.status, data);
+      const res = await fetch("/api/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          desc: value,
+          img: result.secure_url,
+          slug: slugify(title),
+          catSlug: catSlug || "style",
+        }),
+      });
 
-    if (res.status === 200 && data?.slug) {
-      router.push(`/posts/${data.slug}`);
-    } else {
-      alert("Failed to publish post. Check console for details.");
+      let data = null;
+      try {
+        data = await res.json();
+      } catch (jsonError) {
+        console.error("Failed to parse response JSON:", jsonError);
+      }
+
+      console.log("Post response:", res.status, data);
+
+      if (res.status === 200 && data?.slug) {
+        router.push(`/posts/${data.slug}`);
+      } else {
+        alert("Failed to publish post. Check console for details.");
+      }
+    } catch (error) {
+      console.error("Error submitting post:", error);
+      alert("An unexpected error occurred. Please try again.");
     }
-
-    // File Upload
   };
   return (
     <div className={styles.container}>

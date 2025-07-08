@@ -13,7 +13,7 @@ const getData = async (page, cat) => {
   );
 
   if (!res.ok) {
-    throw new Error("Failed");
+    throw new Error("Error while fetching posts in CardList.");
   }
 
   return res.json();

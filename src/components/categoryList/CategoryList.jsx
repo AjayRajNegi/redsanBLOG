@@ -16,7 +16,7 @@ const CategoryList = () => {
         });
 
         if (!res.ok) {
-          throw new Error("Failed to fetch categories");
+          throw new Error("Error while fetching categories in CategoryList.");
         }
 
         const json = await res.json();
